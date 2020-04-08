@@ -16,6 +16,41 @@
       <h2>Welcome to the</h2>
       <h1>Math Decoder</h1>
       <h2>a cryptographic mathematical game for children</h2>
+      <div id="instruct">
+        <p><strong>Instructions: </strong>This application allows users to provide secret messages which are then encrypted into elementary mathematical equations based on grade level. In order to decrypt the encrypted message, the child <em>secret agent decoder</em> must solve the provided mathematical expressions to unlock the corresponding letter. <em>Secret agent decoders</em> then can piece together the message one letter at a time to complete decryption process. Your child is a cryptographic hero!</p>
+      </div>
+
+      <table>
+          <tr>
+            <td>
+              <label><strong>Difficulty:</strong></label>
+              <div>
+                <input type="radio" id="level-1" name="level" value="level-1" checked>
+                <label for="level-1">Level 1</label>
+              </div>
+
+              <div>
+                <input type="radio" id="level-2" name="level" value="level-2">
+                <label for="level-2">Level 2</label>
+              </div>
+              
+              <div>
+                <input type="radio" id="level-3" name="level" value="level-3">
+                <label for="level-3">Level 3</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <label for="message"><strong>Secret Message</strong> (Max 21 characters):</label><br>
+                <input type="text" id="message" name="message" placeholder="The moon is made of cheese!" required maxlength="21" size="10">
+              </div>
+            </td>
+            <td>
+              <button type="submit" id="encrypt">Encrypt!</button>
+            </td>
+          </tr>
+      </table>
+      
     </section>
     <section id="output">
 
