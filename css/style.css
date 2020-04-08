@@ -1,0 +1,34 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  /* background: #f7e6f7; */
+  background-image: linear-gradient(to right,#dddffd , #f1dcf1);
+}
+
+#container {
+  background: #6b54be82;
+  color: #111133;
+  box-shadow: 20px 20px 10px rgba(0, 0, 89, 0.3);
+  border-radius: 15px;
+  max-width: 800px;
+  width: 60%;
+  border: 2px solid rgb(0, 0, 89);
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+#mainimage {
+  width: 60%;
+}
