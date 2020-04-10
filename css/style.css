@@ -1,6 +1,5 @@
 body {
   font-family: 'Raleway', sans-serif;
-  /* background: #f7e6f7; */
   background-image: linear-gradient(to right,#dddffd , #f1dcf1);
 }
 
@@ -18,7 +17,7 @@ body {
 }
 
 #instruct {
-  padding: 15px 40px 15px 40px;
+  padding: 3% 8%;
   padding-bottom: 0px;
 }
 
@@ -31,7 +30,7 @@ table {
   width: 75%;
 }
 
-#encrypt {
+/* #encrypt {
   background: rgba(0, 0, 89, 0.3);
   border: none;
   padding: 8px 25px;
@@ -39,6 +38,15 @@ table {
   font-size: 1.1rem;
   border-radius: 10px;
   outline: none;
+} */
+
+.btn-outline-secondary:hover {
+  background: rgba(0, 0, 89, 0.3);
+}
+
+.btn-outline-secondary {
+  color: #111133;
+  border-color: #111133;
 }
 
 h1 {
