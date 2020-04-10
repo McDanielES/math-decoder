@@ -15,6 +15,25 @@ h2 {
   font-weight: 400;
 }
 
+label {
+  margin: 0;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  width: 18px;
+  height: 18px;
+  outline: none;  
+}
+
+#message {
+  width: 100%;
+}
+
+#output {
+  display: none;
+}
+
 .typewriter {
   font-family: 'Special Elite', cursive;
 }
@@ -30,14 +49,6 @@ h2 {
   text-align: center;
 }
 
-label {
-  margin: 0;
-}
-
-#message {
-  width: 100%;
-}
-
 .logo {
   width: 100%;
   max-width: 185px;
@@ -51,13 +62,6 @@ label {
 .btn-outline-secondary {
   color: #233344;
   border-color: #233344;
-}
-
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-  width: 18px;
-  height: 18px;
-  outline: none;  
 }
 
 .equations {
