@@ -9,53 +9,50 @@
   <link rel="icon" type="image/png" href="imgs/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="imgs/favicon-16x16.png" sizes="16x16" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="container">
+  <div class="container">
     <section id="entry">
-      <h2>Welcome to the</h2>
-      <h1>Math Decoder</h1>
+      <h2 class="mt-2">Welcome to the</h2>
+      <h1 class="decoratedFont mt-2">Math Decoder</h1>
       <h2>a cryptographic mathematical game for children</h2>
-      <div id="instruct">
-        <p><strong>Instructions: </strong>This application allows users to create printable secret messages which are then encrypted into elementary mathematical equations based on grade level. In order to decrypt the encrypted message, the child <em>secret agent decoder</em> must solve the provided mathematical expressions to unlock the corresponding letter. <em>Secret agent decoders</em> then can piece together the message one letter at a time to complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
-      </div>
+      <div class="row mx-5">
+        <div class="col-lg-9 col-sm-12 d-flex align-items-center mt-3">
+          <p><span class="decoratedFont"><strong>Instructions: </strong></span>This application allows users to create printable secret messages which are then encrypted into elementary mathematical equations based on grade level. In order to decrypt the encrypted message, the child <span class="decoratedFont">secret agent decoder</span> must solve the provided mathematical expressions to unlock the corresponding letter. <span class="decoratedFont">Secret agent decoders</span> then can piece together the message one letter at a time to complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
+        </div>
+        <div class="col-lg-3 col-md-12 d-flex justify-content-center mt-2">
+          <img class="logo" src="imgs/calculator.png">
+        </div>
+      </div>        
 
-      <table>
-          <tr>
-            <td>
-              <label><strong>Difficulty:</strong></label>
-              <div>
-                <input type="radio" id="level-1" name="level" value="level-1" checked>
-                <label for="level-1">Level 1</label>
-              </div>
-
-              <div>
-                <input type="radio" id="level-2" name="level" value="level-2">
-                <label for="level-2">Level 2</label>
-              </div>
-              
-              <div>
-                <input type="radio" id="level-3" name="level" value="level-3">
-                <label for="level-3">Level 3</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <label for="message"><strong>Secret Message</strong> (Max 30 characters):</label><br>
-                <input type="text" id="message" name="message" placeholder="The moon is made of cheese!" required maxlength="30" size="10">
-              </div>
-            </td>
-            <td>
-              <button type="button" id="encrypt" class="btn btn-lg btn-outline-secondary">Encrypt!</button>
-            </td>
-          </tr>
-      </table>
-      
+      <div class="row">
+        <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-3">
+          <div>
+            <label><span class="decoratedFont"><strong>Difficulty:</strong></span></label><br>
+            <input type="radio" id="level-1" name="level" value="level-1" checked>
+            <label for="level-1">Level 1</label><br>
+            <input type="radio" id="level-2" name="level" value="level-2">
+            <label for="level-2">Level 2</label><br>
+            <input type="radio" id="level-3" name="level" value="level-3">
+            <label for="level-3">Level 3</label>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2">
+          <div>
+            <label for="message"><span class="decoratedFont"><strong>Secret Message</strong></span> (Max 30 characters):</label><br>
+            <input type="text" id="message" name="message" placeholder="The moon is made of cheese!" required maxlength="30" size="10">
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2 decoratedFont">
+          <button type="button" id="encrypt" class="btn btn-lg btn-outline-secondary pb-0"><strong>Encrypt!</strong></button>
+        </div>
+      </div>      
     </section>
-    <section id="output">
-      <table>
 
-      </table>
+
+    <section id="output">
+
     </section>
   </div>
 
