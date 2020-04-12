@@ -30,7 +30,7 @@
         </div>        
 
         <div class="row">
-          <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-3">
+          <div class="col-xl-4 col-md-3 col-sm-12 d-flex align-items-center d-flex justify-content-around my-3">
             <div>
               <label><span class="typewriter"><strong>Difficulty:</strong></span></label><br>
               <input type="radio" id="level-1" name="level" value="1" checked>
@@ -41,15 +41,17 @@
               <label for="level-3">Level 3</label>
             </div>
           </div>
-          <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2">
+          <div class="col-xl-4 col-md-6 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2">
             <div>
-              <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 30 characters):</label><br>
+              <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 30 characters, required):</label><br>
               <input type="text" id="message" name="message" required maxlength="30" size="10">
               <p id="inputRequired"></p>
+              <label class="mt-2" for="prompt">Optional message to display at top</label><br>
+              <input type="text" id="prompt" name="prompt" required maxlength="60" size="10" placeholder="Such as a question, riddle, etc.">
             </div>
           </div>
-          <div class="col-xl-4 col-md-4 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2 typewriter">
-            <button type="button" id="encryptAction" class="btn btn-lg btn-outline-secondary pb-0 px-5"><strong>Encrypt!</strong></button>
+          <div class="col-xl-4 col-md-3 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2 typewriter">
+            <button type="button" id="encryptAction" class="btn btn-lg btn-outline-secondary pb-0 px-4"><strong>Encrypt!</strong></button>
           </div>
         </div>
         <div class="row">
@@ -63,12 +65,15 @@
 
       <section id="output">
         <h1 class="typewriter mt-2">Math Decoder</h1>
-        <h3 class="mx-3">To find the answer, solve the problem and write the letter or punctuation mark above the provided answer below.</h3>
-        <h2 id="prompt">null</h2>
+        <h3 class="mx-3 my-2"><strong class="typewriter">Directions:</strong> To find the answer, solve the problem and write the letter or punctuation mark above the provided answer below.</h3>
+        <h2 id="promptAtTop" class="my-4"></h2>
         <div class="row">
-          <div class="col-xl-4 col-md-6 col-sm-12 border-right border-dark equations">
+
+
+          
+          <!-- <div class="col-xl-4 col-md-6 col-sm-12 border-right border-dark equations">
             <p><span id="eq"></span><span class="underline"> &nbsp; &nbsp; </span></p>
-          </div>
+          </div> -->
         </div>
       </section>
     </div>

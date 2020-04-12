@@ -14,8 +14,9 @@ h2 {
   margin: 0;
   font-weight: 400;
 }
+
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
 }
 
 label {
@@ -37,8 +38,22 @@ a {
   outline: none;  
 }
 
-#message {
+#promptAtTop {
+  font-size: 2.3rem;
+}
+
+#message, #prompt {
   width: 100%;
+  outline: none;
+}
+
+#prompt {
+  background: #44226622;
+  border: solid #111133 1px;
+}
+
+#prompt::placeholder {
+  color: #FFFFFFAA;
 }
 
 #output {
