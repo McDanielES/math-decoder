@@ -65,10 +65,13 @@ a {
   color: #BB4455;
   font-weight: 700;
   font-size: 1.1rem;
+  margin-bottom: 7px;
 }
 
 #disclaimer {
   font-size: 0.80em;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .typewriter {
