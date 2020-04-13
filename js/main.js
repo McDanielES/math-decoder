@@ -37,18 +37,24 @@ $("#encryptAction").on("click", function() {
     var firstTerm = Math.floor(10 * Math.random());
     var another = Math.floor(10 * Math.random());
 
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((1 + "+" + 2 + "="));
 
-    $(".row").last().append().html("<div class='col-xl-4 col-md-6 col-sm-12 border-right border-dark equations'>    <p><span id='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((3 + "+" + 4 + "="));
 
-    $("#eq").append((firstTerm + "+" + problems.solution[0] + "="));
-    (firstTerm + "+" + problems.solution[0] + "=");
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((5 + "+" + 6 + "="));
 
-    $(".row").last().append().html("<div class='col-xl-4 col-md-6 col-sm-12 border-right border-dark equations'>    <p><span id='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((7 + "+" + 8 + "="));
 
-    $("#eq").append((another + "+" + problems.solution[1] + "="));
-    (another + "+" + problems.solution[1] + "=");
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((9 + "+" + 10 + "="));
 
-    // $("div").last().parent().append(another + "+" + problems.solution[1] + "=").addClass("col-xl-4 col-md-6 col-sm-12 border-right border-dark equations");
+    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations'>    <p><span class='eq'></span><span class='underline'> &nbsp; &nbsp; </span></p>  </div>");
+    $(".eq").last().text((11 + "+" + 12 + "="));
+
   }  
 });
 
