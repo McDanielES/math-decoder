@@ -15,8 +15,8 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: Daddy snores in his sleep"];
 const operations    = ["+", "-", "*", "/"];
 const solutionRange = [1.5, 5.0, 5.0];
-var  message = "";
-var  difficulty;
+var   message       = "";
+var   difficulty;
 
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
 
@@ -45,7 +45,8 @@ $("#encryptAction").on("click", function() {
     message = $("input[name='message']").val().toUpperCase();
 
     var problems = generateProblemSet();
-    printProblemSet(problems);
+    var shuffled = printProblemSet(problems);
+    printAnswerBubble(problems, shuffled);
   }  
 });
 
@@ -150,6 +151,26 @@ function printProblemSet(problems) {
     $(".letter").last().text(shuffled.letter[i]);
     $(".eq").last().text(problems.firstTerm[i] + problems.operation[i] + problems.secondTerm[i] + "=");
   }
+  return shuffled;
+}
+
+function printAnswerBubble(problems, shuffled) {
+  $("#output").append("<div class='row'></div>");
+  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
+  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer</p><div class='row'></div></div>");
+  $(".row").last().css("border", "1px solid red");
+  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
+  var i = 0;
+  do {
+    // $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='answerLetter'></p></div>");
+    while (problems.letter[i] !== " " && (i <= message.length)) {
+      console.log("Inner");
+      $(".row").append("<div class='col-xl-3 col-md-4 col-sm-12'><span class='answerLetter'></span></div>");
+      $(".answerLetter").last().text(problems.solution[i]);
+      i++;
+    }
+    console.log("Outer");
+  } while (i <= message.length);
 }
 
 /**
