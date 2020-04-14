@@ -158,19 +158,21 @@ function printAnswerBubble(problems, shuffled) {
   $("#output").append("<div class='row'></div>");
   $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
   $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer</p><div class='row'></div></div>");
-  $(".row").last().css("border", "1px solid red");
+  $(".row").last().css("padding-top", "15px");
   $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
   var i = 0;
-  do {
-    // $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='answerLetter'></p></div>");
-    while (problems.letter[i] !== " " && (i <= message.length)) {
-      console.log("Inner");
-      $(".row").append("<div class='col-xl-3 col-md-4 col-sm-12'><span class='answerLetter'></span></div>");
-      $(".answerLetter").last().text(problems.solution[i]);
-      i++;
+
+  $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='inline'></p></div>");
+  while (i < message.length) {
+    if (problems.letter[i] == " ") {
+      console.log("Making it.");
+      $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='inline'></p></div>");
     }
-    console.log("Outer");
-  } while (i <= message.length);
+    var char = (problems.letter[i] == " ") ? null : (problems.solution[i]);
+    if (char !== null)
+      $(".inline").last().append("<span class='answerLetter'>&nbsp;" + char + "&nbsp;</span>");
+    i++;
+  }
 }
 
 /**
