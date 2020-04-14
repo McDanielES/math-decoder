@@ -1,6 +1,6 @@
 body {
   font-family: 'Raleway', sans-serif;
-  background-image: linear-gradient(to right,#dddffd , #f1dcf1);
+  background-image: linear-gradient(to right,#edeffd , #f1dcf1);
 }
 
 h1 {
@@ -29,6 +29,10 @@ label strong, p strong {
 
 a {
   text-decoration: underline;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 [type="radio"]:checked,
@@ -75,7 +79,10 @@ a {
 }
 
 .inner-container {
-  background: #6b54be82;
+  /* background: #6b54be82; */
+  background: linear-gradient(217deg, #8b74de42, #6b94be32 70.71%),
+              linear-gradient(127deg, #6b24be32, #6b544e32 70.71%),
+              linear-gradient(336deg, #ab271572, #8b54de32 70.71%);
   color: #233344;
   box-shadow: 10px 10px 10px rgba(0, 0, 89, 0.3);
   border-radius: 20px;
@@ -101,14 +108,14 @@ a {
 
 .equations {
   font-family: 'Comic Neue', cursive;
-  font-size: 4.0rem;
+  font-size: 3rem;
   letter-spacing: 0.1rem;
-  /* word-spacing: 0.1rem; */
+  
 }
 
 .letter {
   font-family: 'Special Elite', cursive;
-  font-size: 4.7rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #BB4455;
   margin-right: 14px;
@@ -123,9 +130,43 @@ a {
   max-width: 185px;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 992px) and (min-width: 768px)  {
   #instruct {
     margin-left: 3px !important;
     margin-right: 3px !important;
+  }
+  .letter {
+    font-size: 2.5rem;
+    margin-right: 2px;
+  }
+  .equations {
+    font-size: 2rem;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  #promptAtTop {
+    font-size: 2.9rem;
+  }
+  .inner-container {
+    background: #fff;
+    border: none;
+  }
+  .letter {
+    font-size: 4rem;
+    margin-right: 18px;
+  }
+  .equations {
+    font-size: 3rem;
+  }
+  div::col-md-4 {
+    margin-top: -6px;
   }
 }
