@@ -45,14 +45,15 @@ $("#encryptAction").on("click", function() {
     message = $("input[name='message']").val().toUpperCase();
 
     var problems = generateProblemSet();
-    printSet(problems);
+    printProblemSet(problems);
   }  
 });
 
 function generateProblemSet() {
   // Instantiate empty "problems" object with parallel arrays
   var problems = {
-    letter: shuffle(Array.from(message)),
+    // letter: shuffle(Array.from(message)),
+    letter: Array.from(message),
     firstTerm: [],
     operation: [],
     secondTerm: [],
@@ -93,6 +94,7 @@ function populateAddSubtractSolutions(problems) {
  * @param {Object} problems 
  */
 function populateTerms(problems) {
+  console.log("Printed List for Debugging Purposes. This does not alter performance of application.");
   for (var i = 0; i < message.length; i++) {
     // if the problem set is addition, take the difference of the solution and the first term
     if (problems.operation[i] === operations[0]) {
@@ -108,8 +110,11 @@ function populateTerms(problems) {
       problems.firstTerm.push(Math.floor(rand * 2 * problems.solution[i]));
       problems.secondTerm.push(problems.firstTerm[i] - problems.solution[i]);
     }
-    console.log(problems.firstTerm[i] + " " + problems.operation[i] + " " 
-                  + problems.secondTerm[i] + " = " + problems.solution[i]);
+    
+    // Printed List for Debugging Purposes
+    if (problems.letter[i] !== " ")
+      console.log(problems.letter[i] + " ||| " + problems.firstTerm[i] + " "
+          + problems.operation[i] + " " + problems.secondTerm[i] + " = " + problems.solution[i]);
   }
 }
 
@@ -129,14 +134,21 @@ function populateOperations(problems) {
   }
 }
 
-function printSet(problems) {
+function printProblemSet(problems) {
+  // Copy the letters from the problem set into new variable in order to shuffle them without
+  // losing memory of the original string.
+  var shuffled = {
+    letter: shuffle(Array.from(message)),
+  };
+
+  // Iterate through each shuffled letter, skipping spaces, and use DOM manipulation to add a new
+  // div and fill it contents with the created math expressions.
   for (var i = 0; i < message.length; i++) {
-    if (problems.letter[i] === " ")
+    if (shuffled.letter[i] === " ")
       continue;
-    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations px-0'><p><span class='letter'></span><span class='eq'></span><span class='underline'>＿</span></p></div>");
-    $(".letter").last().text(problems.letter[i]);
-    $(".eq").last().text("" + problems.firstTerm[i] + "" + problems.operation[i] + "" + problems.secondTerm[i]
-                     + "=");
+    $(".row").append("<div class='col-xl-4 col-md-4 col-sm-12 equations px-0'><p><span class='letter'></span><span class='eq'></span><span class='underline'>＿</span></p></div>");
+    $(".letter").last().text(shuffled.letter[i]);
+    $(".eq").last().text(problems.firstTerm[i] + problems.operation[i] + problems.secondTerm[i] + "=");
   }
 }
 
