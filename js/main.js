@@ -15,8 +15,8 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: Daddy snores in his sleep"];
 const operations    = ["+", "-", "*", "/"];
 const solutionRange = [1.5, 5.0, 5.0];
-var  message = "";
-var  difficulty;
+var   message       = "";
+var   difficulty;
 
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
 
@@ -45,14 +45,16 @@ $("#encryptAction").on("click", function() {
     message = $("input[name='message']").val().toUpperCase();
 
     var problems = generateProblemSet();
-    printSet(problems);
+    var shuffled = printProblemSet(problems);
+    printAnswerBubble(problems, shuffled);
   }  
 });
 
 function generateProblemSet() {
   // Instantiate empty "problems" object with parallel arrays
   var problems = {
-    letter: shuffle(Array.from(message)),
+    // letter: shuffle(Array.from(message)),
+    letter: Array.from(message),
     firstTerm: [],
     operation: [],
     secondTerm: [],
@@ -93,6 +95,7 @@ function populateAddSubtractSolutions(problems) {
  * @param {Object} problems 
  */
 function populateTerms(problems) {
+  console.log("Printed List for Debugging Purposes. This does not alter performance of application.");
   for (var i = 0; i < message.length; i++) {
     // if the problem set is addition, take the difference of the solution and the first term
     if (problems.operation[i] === operations[0]) {
@@ -108,8 +111,11 @@ function populateTerms(problems) {
       problems.firstTerm.push(Math.floor(rand * 2 * problems.solution[i]));
       problems.secondTerm.push(problems.firstTerm[i] - problems.solution[i]);
     }
-    console.log(problems.firstTerm[i] + " " + problems.operation[i] + " " 
-                  + problems.secondTerm[i] + " = " + problems.solution[i]);
+    
+    // Printed List for Debugging Purposes
+    if (problems.letter[i] !== " ")
+      console.log(problems.letter[i] + " ||| " + problems.firstTerm[i] + " "
+          + problems.operation[i] + " " + problems.secondTerm[i] + " = " + problems.solution[i]);
   }
 }
 
@@ -129,15 +135,42 @@ function populateOperations(problems) {
   }
 }
 
-function printSet(problems) {
+function printProblemSet(problems) {
+  // Copy the letters from the problem set into new variable in order to shuffle them without
+  // losing memory of the original string.
+  var shuffled = {
+    letter: shuffle(Array.from(message)),
+  };
+
+  // Iterate through each shuffled letter, skipping spaces, and use DOM manipulation to add a new
+  // div and fill it contents with the created math expressions.
   for (var i = 0; i < message.length; i++) {
-    if (problems.letter[i] === " ")
+    if (shuffled.letter[i] === " ")
       continue;
-    $(".row").append("<div class='col-xl-4 col-md-6 col-sm-12 equations px-0'><p><span class='letter'></span><span class='eq'></span><span class='underline'>＿</span></p></div>");
-    $(".letter").last().text(problems.letter[i]);
-    $(".eq").last().text("" + problems.firstTerm[i] + "" + problems.operation[i] + "" + problems.secondTerm[i]
-                     + "=");
+    $(".row").append("<div class='col-xl-4 col-md-4 col-sm-12 equations px-0'><p><span class='letter'></span><span class='eq'></span><span class='underline'>＿</span></p></div>");
+    $(".letter").last().text(shuffled.letter[i]);
+    $(".eq").last().text(problems.firstTerm[i] + problems.operation[i] + problems.secondTerm[i] + "=");
   }
+  return shuffled;
+}
+
+function printAnswerBubble(problems, shuffled) {
+  $("#output").append("<div class='row'></div>");
+  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
+  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer</p><div class='row'></div></div>");
+  $(".row").last().css("border", "1px solid red");
+  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
+  var i = 0;
+  do {
+    // $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='answerLetter'></p></div>");
+    while (problems.letter[i] !== " " && (i <= message.length)) {
+      console.log("Inner");
+      $(".row").append("<div class='col-xl-3 col-md-4 col-sm-12'><span class='answerLetter'></span></div>");
+      $(".answerLetter").last().text(problems.solution[i]);
+      i++;
+    }
+    console.log("Outer");
+  } while (i <= message.length);
 }
 
 /**
