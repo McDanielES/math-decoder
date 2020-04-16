@@ -16,6 +16,7 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: The dog really ate my homework"];
 const operations    = ["+", "-", "*", "/"];
 const solutionRange = [1.5, 5.0, 5.0];
+var   solutionsMap = [];
 var   message       = "";
 var   difficulty;
 
@@ -53,14 +54,21 @@ $("#encryptAction").on("click", function() {
 
 function generateProblemSet() {
   // Instantiate empty "problems" object with parallel arrays
-  var problems = {
-    // letter: shuffle(Array.from(message)),
+  // solutionsMap = Array.from(message).map(x => shuffle(x));
+  var problems = { 
+    // letter: Array.from(message).map(x => shuffle(x)),
     letter: Array.from(message),
     firstTerm: [],
     operation: [],
     secondTerm: [],
     solution: []
   };
+
+  for (var i = 0; i < message.length; i++) {
+    solutionsMap[i] = i;
+  }
+  solutionsMap = shuffle(solutionsMap);
+
   populateOperations(problems);
 
   if (difficulty < 3) {
@@ -162,7 +170,6 @@ function printAnswerBubble(problems, shuffled) {
   $(".row").last().css("padding-top", "15px");
   $(".row").last().append("<div class='col-xl-12 col-sm-12 mt-3 mx-0 px-0'></div>");
   var i = 0;
-  console.log($(window).width() );
   while (i < message.length) {
       if (problems.letter[i] == " ") {
         $(".col-xl-12").last().append("<span class='noOverline'> </span>");
