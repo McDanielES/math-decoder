@@ -12,7 +12,8 @@
 const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: More ice cream for breakfast",
                       "Ex: I want more chores please!",
-                      "Ex: Daddy snores in his sleep"];
+                      "Ex: Daddy snores in his sleep",
+                      "Ex: The dog really ate my homework"];
 const operations    = ["+", "-", "*", "/"];
 const solutionRange = [1.5, 5.0, 5.0];
 var   message       = "";
@@ -157,22 +158,20 @@ function printProblemSet(problems) {
 function printAnswerBubble(problems, shuffled) {
   $("#output").append("<div class='row'></div>");
   $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
-  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer</p><div class='row'></div></div>");
+  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer Key</p><div class='row'></div></div>");
   $(".row").last().css("padding-top", "15px");
-  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
+  $(".row").last().append("<div class='col-xl-12 col-sm-12 mt-3 mx-0 px-0'></div>");
   var i = 0;
-
-  $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='inline'></p></div>");
+  console.log($(window).width() );
   while (i < message.length) {
-    if (problems.letter[i] == " ") {
-      console.log("Making it.");
-      $("#answerLabel").append("<div class='col-xl-3 col-md-4 col-sm-12'><p class='inline'></p></div>");
+      if (problems.letter[i] == " ") {
+        $(".col-xl-12").last().append("<span class='noOverline'> </span>");
+      }
+      var char = (problems.letter[i] == " ") ? null : (problems.solution[i]);
+      if (char !== null)
+        $(".col-xl-12").last().append("<span class='answerLetter'>" + char + "</span>");
+      i++;
     }
-    var char = (problems.letter[i] == " ") ? null : (problems.solution[i]);
-    if (char !== null)
-      $(".inline").last().append("<span class='answerLetter'>&nbsp;" + char + "&nbsp;</span>");
-    i++;
-  }
 }
 
 /**

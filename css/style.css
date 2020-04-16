@@ -124,17 +124,20 @@ p {
 }
 
 .answerLetter {
-  text-decoration: overline;
   font-size: 2.5rem;
   font-family: 'Comic Neue', cursive;
   font-weight: 200;
-  padding-left: 3px;
-  padding-right: 3px;
-  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  word-spacing: 2rem;
+  line-height: 270%;
+  border-top: 2px solid #233344;
 }
 
-.inline {
-  display: inline-flex !important;
+span.noOverline {
+  margin-left: 2.2rem;
 }
 
 .letter {
@@ -166,12 +169,28 @@ p {
   .equations {
     font-size: 2rem;
   }
+  .answerLetter {
+    font-size: 1.5rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 1.5rem;
+  }
 }
 
 @media (max-width: 777px) {
   #answerLabel {
     margin-left: 8%;
     margin-right: 8%; 
+  }
+  .answerLetter {
+    font-size: 1.5rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 1.5rem;
   }
 }
 
@@ -196,7 +215,7 @@ p {
   }
 
   #answerLabel {
-    margin-top: 5em !important;
+    margin-top: 3em !important;
     border: 1pt solid black;
     background: none;
   }
@@ -217,5 +236,17 @@ p {
 
   .col-md-4 {
     margin-top: -0.3em;
+  }
+  .answerLetter {
+    font-size: 2.5rem;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 200;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 2rem;
+    line-height: 270%;
+    border-top: 2px solid #233344;
   }
 }
