@@ -13,10 +13,12 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: More ice cream for breakfast",
                       "Ex: I want more chores please!",
                       "Ex: Daddy snores in his sleep",
-                      "Ex: The dog really ate my homework"];
+                      "Ex: The dog really ate my homework",
+                      "Ex: No more monkeys jumping!"];
 const operations    = ["+", "-", "*", "/"];
+const colors        = ["#bb4455", "#2d3eb1", "#3d723a", "#bf6919"];
 const solutionRange = [1.5, 5.0, 5.0];
-var   solutionsMap = [];
+var   solutionsMap  = [];
 var   message       = "";
 var   difficulty;
 
@@ -47,28 +49,23 @@ $("#encryptAction").on("click", function() {
     message = $("input[name='message']").val().toUpperCase();
 
     var problems = generateProblemSet();
-    var shuffled = printProblemSet(problems);
-    printAnswerBubble(problems, shuffled);
+
+    printProblemSet(problems);
+    printAnswerBubble(problems);
   }  
 });
 
 function generateProblemSet() {
   // Instantiate empty "problems" object with parallel arrays
-  // solutionsMap = Array.from(message).map(x => shuffle(x));
   var problems = { 
-    // letter: Array.from(message).map(x => shuffle(x)),
     letter: Array.from(message),
     firstTerm: [],
     operation: [],
     secondTerm: [],
     solution: []
   };
-
-  for (var i = 0; i < message.length; i++) {
-    solutionsMap[i] = i;
-  }
-  solutionsMap = shuffle(solutionsMap);
-
+  
+  generateSolutionsMap();
   populateOperations(problems);
 
   if (difficulty < 3) {
@@ -145,25 +142,20 @@ function populateOperations(problems) {
 }
 
 function printProblemSet(problems) {
-  // Copy the letters from the problem set into new variable in order to shuffle them without
-  // losing memory of the original string.
-  var shuffled = {
-    letter: shuffle(Array.from(message)),
-  };
-
   // Iterate through each shuffled letter, skipping spaces, and use DOM manipulation to add a new
   // div and fill it contents with the created math expressions.
+  // Use the solutionsMap global variable to key-value map the real value with a shuffled value.
   for (var i = 0; i < message.length; i++) {
-    if (shuffled.letter[i] === " ")
+    if (problems.letter[solutionsMap[i]] === " ")
       continue;
     $(".row").append("<div class='col-xl-4 col-md-4 col-sm-12 equations px-0'><p><span class='letter'></span><span class='eq'></span><span class='underline'>＿</span></p></div>");
-    $(".letter").last().text(shuffled.letter[i]);
-    $(".eq").last().text(problems.firstTerm[i] + problems.operation[i] + problems.secondTerm[i] + "=");
+    $(".letter").last().text(problems.letter[solutionsMap[i]]);
+    $(".letter").last().css("color", colors[Math.floor(Math.random() * colors.length)]);
+    $(".eq").last().text(problems.firstTerm[solutionsMap[i]] + problems.operation[solutionsMap[i]] + problems.secondTerm[solutionsMap[i]] + "=");
   }
-  return shuffled;
 }
 
-function printAnswerBubble(problems, shuffled) {
+function printAnswerBubble(problems) {
   $("#output").append("<div class='row'></div>");
   $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
   $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer Key</p><div class='row'></div></div>");
@@ -179,6 +171,14 @@ function printAnswerBubble(problems, shuffled) {
         $(".col-xl-12").last().append("<span class='answerLetter'>" + char + "</span>");
       i++;
     }
+}
+
+function generateSolutionsMap() {
+  var map = [];
+  for (var i = 0; i < message.length; i++) {
+    map.push(i);
+  }
+  solutionsMap = shuffle(map);
 }
 
 /**
