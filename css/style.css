@@ -4,9 +4,10 @@ body {
 }
 
 h1 {
-  font-size: 3.6rem;
-  margin: 0;
-  letter-spacing: 0.3rem;
+  font-size: 5rem;
+  margin: -10px;
+  letter-spacing: -0.2rem;
+  font-variant: small-caps;
 }
 
 h2 {
@@ -90,6 +91,13 @@ p {
   box-shadow: 10px 10px 10px rgba(0, 0, 89, 0.3);
 }
 
+#answerLabel p {
+  letter-spacing: 0.3rem;
+  font-size: 2.7rem;
+  text-shadow: 2px 3px #00000050;
+  font-variant: small-caps;
+}
+
 .inner-container {
   background: linear-gradient(217deg, #8b74de42, #6b94be32 70.71%),
               linear-gradient(127deg, #6b24be32, #6b544e32 70.71%),
@@ -157,6 +165,10 @@ span.noOverline {
   max-width: 185px;
 }
 
+.fa-user-secret {
+  font-size: 3rem;
+}
+
 @media (max-width: 992px) and (min-width: 768px)  {
   #instruct {
     margin-left: 3px !important;
@@ -206,18 +218,27 @@ span.noOverline {
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 700;
   }
 
   #promptAtTop {
-    font-size: 2.9rem;
+    font-size: 2.2rem;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 4px;
   }
 
   #answerLabel {
-    margin-top: 3em !important;
+    margin-top: 2em !important;
     border: 1pt solid black;
+    border-radius: 16px;
     background: none;
+  }
+
+  #answerLabel p {
+    font-size: 2.7rem;
+    text-shadow: none;
   }
 
   .inner-container {
@@ -226,12 +247,12 @@ span.noOverline {
   }
 
   .letter {
-    font-size: 4rem;
+    font-size: 3.2rem;
     margin-right: 18px;
   }
 
   .equations {
-    font-size: 3rem;
+    font-size: 2.7rem;
   }
 
   .col-md-4 {
@@ -248,5 +269,8 @@ span.noOverline {
     word-spacing: 2rem;
     line-height: 270%;
     border-top: 2px solid #233344;
+  }
+  .fa-user-secret {
+    font-size: 2rem;
   }
 }
