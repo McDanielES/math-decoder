@@ -4,9 +4,10 @@ body {
 }
 
 h1 {
-  font-size: 3.6rem;
-  margin: 0;
-  letter-spacing: 0.3rem;
+  font-size: 5rem;
+  margin: -10px;
+  letter-spacing: -0.2rem;
+  font-variant: small-caps;
 }
 
 h2 {
@@ -90,6 +91,13 @@ p {
   box-shadow: 10px 10px 10px rgba(0, 0, 89, 0.3);
 }
 
+#answerLabel p {
+  letter-spacing: 0.3rem;
+  font-size: 2.7rem;
+  text-shadow: 2px 3px #00000050;
+  font-variant: small-caps;
+}
+
 .inner-container {
   background: linear-gradient(217deg, #8b74de42, #6b94be32 70.71%),
               linear-gradient(127deg, #6b24be32, #6b544e32 70.71%),
@@ -124,9 +132,20 @@ p {
 }
 
 .answerLetter {
-  text-decoration: overline;
-  font-size: 2rem;
-  font-family: 'Special Elite', cursive;
+  font-size: 2.5rem;
+  font-family: 'Comic Neue', cursive;
+  font-weight: 200;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  word-spacing: 2rem;
+  line-height: 270%;
+  border-top: 2px solid #233344;
+}
+
+span.noOverline {
+  margin-left: 2.2rem;
 }
 
 .letter {
@@ -146,6 +165,10 @@ p {
   max-width: 185px;
 }
 
+.fa-user-secret {
+  font-size: 3rem;
+}
+
 @media (max-width: 992px) and (min-width: 768px)  {
   #instruct {
     margin-left: 3px !important;
@@ -158,12 +181,28 @@ p {
   .equations {
     font-size: 2rem;
   }
+  .answerLetter {
+    font-size: 1.5rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 1.5rem;
+  }
 }
 
 @media (max-width: 777px) {
   #answerLabel {
     margin-left: 8%;
     margin-right: 8%; 
+  }
+  .answerLetter {
+    font-size: 1.5rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 1.5rem;
   }
 }
 
@@ -179,18 +218,27 @@ p {
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 700;
   }
 
   #promptAtTop {
-    font-size: 2.9rem;
+    font-size: 2.2rem;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 4px;
   }
 
   #answerLabel {
-    margin-top: 5em !important;
+    margin-top: 2em !important;
     border: 1pt solid black;
+    border-radius: 16px;
     background: none;
+  }
+
+  #answerLabel p {
+    font-size: 2.7rem;
+    text-shadow: none;
   }
 
   .inner-container {
@@ -199,15 +247,30 @@ p {
   }
 
   .letter {
-    font-size: 4rem;
+    font-size: 3.2rem;
     margin-right: 18px;
   }
 
   .equations {
-    font-size: 3rem;
+    font-size: 2.7rem;
   }
 
   .col-md-4 {
     margin-top: -0.3em;
+  }
+  .answerLetter {
+    font-size: 2.5rem;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 200;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    word-spacing: 2rem;
+    line-height: 270%;
+    border-top: 2px solid #233344;
+  }
+  .fa-user-secret {
+    font-size: 2rem;
   }
 }
