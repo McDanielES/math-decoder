@@ -5,7 +5,7 @@
  *               mathematical expressions and corresponding letters for kids to decrypt
  *               secret messages that had been encrypted. 
  * @author       Eric McDaniel, April 2020
- * @version      1.0.1
+ * @version      1.0.2
  */
 
 // Global variables and constants initialized at startup.
@@ -18,7 +18,7 @@ const demoExamples = ["Ex: The moon is made of cheese!",
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
 const operations    = ["+", "-", "×", "÷"];
 const colors        = ["#bb4455", "#2d3eb1", "#3d723a", "#bf6919"];
-const solutionRange = [1.5, 10, 15, 120];
+const solutionRange = [1.5, 10, 1, 3];
 var   solutionsMap  = [];
 var   message       = "";
 var   difficulty;
@@ -35,20 +35,21 @@ $("#encryptAction").on("click", function() {
   }
   else {
     // Remove the entire panel, instructions and interface
-    $(this).parentsUntil(".inner-container").slideUp(200, function() {
+    $(this).parentsUntil(".inner-container").slideUp(300, function() {
       $(this).remove();
     });
 
     // Show problem set
     $("#output").css("display", "block");
     $("#promptAtTop").text($("input[name='prompt']").val());
+    if ($("input[name='prompt']").val().length === 0)
+    $("#promptAtTop").css("visibility", "collapse");
 
     // Update global scope variables with user-provided input
     difficulty = Number($("input[name='level']:checked").val());
     message = $("input[name='message']").val().toUpperCase();
 
     var problems = generateProblemSet();
-
     printProblemSet(problems);
     printAnswerBubble(problems);
   }  
@@ -75,7 +76,6 @@ function generateProblemSet() {
   
   generateSolutionsMap();
   populateOperations(problems);
-
   if (difficulty < 3) {
     populateAddSubtractSolutions(problems);
     populateAddSubtractTerms(problems);
@@ -83,7 +83,6 @@ function generateProblemSet() {
   else {
     populateMultiDivideProblems(problems);
   }
-
   return problems;
 }
 
@@ -138,29 +137,42 @@ function populateAddSubtractTerms(problems) {
   }
 }
 
+/**
+ * Generates both the problems and solution sets for multiplication and division problems.
+ * Random numbers between 0 and 15 are generated for multiplication, and the first digit
+ * is continuously incremented until a unique solution is found if the original solution
+ * already exists in the solution set. A similar approach is used for division, however
+ * with modulo operation. The numbers are added to the problems object.
+ * 
+ * @param {Object} problems the complete set of problems including all terms, solutions, and
+ *                          assigned letters.
+ */
 function populateMultiDivideProblems(problems) {
+  console.log("Printed List for Debugging Purposes. This does not alter performance of application.");
+  var first, second;
+
   for (var i = 0; i < message.length; i++) {
-    var first, second;
     if (problems.operation[i] === "×") {
-      first = (Math.floor(Math.random() * solutionRange[2]));
-      second = (Math.floor(Math.random() * solutionRange[2]) + 1);
+      first = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 1]));
+      second = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 1]) + 1);
+      // Increment the first value until the solution is unique in the solution set array
       while (problems.solution.includes(first * second)) {
         first++;
-        // console.log("first:" + first + problems.operation[i] + "   second: " + second);
       }
       problems.solution[i] = first * second;
     }
     else {
+      // Division
       do {
-        first = (Math.floor(Math.random() * solutionRange[3]));
-        second = (Math.floor(Math.random() * 9) + 1);
+        first = (Math.floor(Math.random() * 120 * solutionRange[difficulty - 1]));
+        second = (Math.floor(Math.random() * 9 * solutionRange[difficulty - 1]) + 1);
         while (first % second !== 0) {
           first++;
-          // console.log("first:" + first + "   second: " + second);
-        }
+        } // Repeat this entire process if the value was found in the solution set.
       } while (problems.solution.includes(first / second));
       problems.solution[i] = first / second;
     }
+    // Add remaining terms to problems object
     problems.firstTerm[i] = first;
     problems.secondTerm[i] = second;
 
@@ -181,8 +193,8 @@ function populateMultiDivideProblems(problems) {
  */
 function populateOperations(problems) {  
   for (var i = 0; i < message.length; i++) {
-    problems.operation.push( (difficulty === 3) ? 
-                              operations[Math.floor((Math.random() * 0.75) * (operations.length - 2)) + 2] :
+    problems.operation.push( (difficulty > 2) ? 
+                              operations[Math.floor((Math.random() * 0.85) * (operations.length - 2)) + 2] :
                               operations[Math.floor(Math.random() * (operations.length - 2))]);
   }
 }
@@ -228,7 +240,7 @@ function printAnswerBubble(problems) {
       }
       var char = (problems.letter[i] == " ") ? null : (problems.solution[i]);
       if (char !== null)
-        $(".col-xl-12").last().append("<span class='answerLetter'>" + char + "</span>");
+        $(".col-xl-12").last().append("<span class='answerLetter'>" + formatNumber(char) + "</span>");
       i++;
     }
 }
@@ -263,4 +275,14 @@ function shuffle(arr) {
     arr[rand] = tempVal;
   }
   return arr;
+}
+
+/**
+ * A helper function that uses regular expressions to format the argument, assumed to
+ * be a number, to have a comma after every three digits, such as 1,000.
+ * 
+ * @param {String} num 
+ */
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
