@@ -227,6 +227,7 @@ span.noOverline {
     border: 1px solid black;
     border-radius: 16px;
     padding: 4px;
+    display: hidden;
   }
 
   #answerLabel {
