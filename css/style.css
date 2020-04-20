@@ -26,6 +26,7 @@ label {
 
 label strong, p strong {
   font-size: 1.1rem;
+  line-height: 1;
 }
 
 a {
@@ -113,6 +114,7 @@ p {
 
 .typewriter {
   font-family: 'Special Elite', cursive;
+  line-height: 1;
 }
 
 .btn-outline-secondary:hover {
