@@ -18,7 +18,7 @@ My main priority when developing this web application was to build something tha
 
 ### Usage
 + There are four difficulty levels to choose from. Select one of the radio buttons to proceed.
-+ Provide a message of no more than 30 characters in the `Secret Message` input field. This will be the encrypted message hidden at the bottom that the child must decrypt.
++ Provide a message of no more than 42 characters in the `Secret Message` input field. This will be the encrypted message hidden at the bottom that the child must decrypt.
 + You may optionally enter a message in the `Optional Message` input field below. This is a prompt that would show at the top of the page, such as a question at the top if the decrypted message were to be the answer to the question.
 + Press `Encrypt`, and the application will generate the solution set and problems.
 
