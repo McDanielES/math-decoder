@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Decoder</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Math Decoder - ericmcd.com</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="icon" type="image/png" href="imgs/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="imgs/favicon-16x16.png" sizes="16x16" />
@@ -21,7 +22,12 @@
         <h2><em>a cryptographic mathematical game for children</em></h2>
         <div id="instruct" class="row mx-5">
           <div class="col-lg-9 col-sm-12 d-flex align-items-center mt-3">
-            <p><span class="typewriter"><strong>Instructions: </strong></span>This application allows parents to generate printable worksheets with a custom secret message which is then encrypted into elementary mathematical expressions based on grade level. In order to decrypt the encrypted message, the child <span class="typewriter">secret agent decoder</span> must solve mathematical expressions to unlock the corresponding letter. <span class="typewriter">Secret agent decoders</span> then can assemble the message one letter at a time to complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
+            <p><span class="typewriter"><strong>Instructions: </strong></span>This application allows parents to generate 
+              printable worksheets with a custom secret message which is then encrypted into elementary mathematical expressions 
+              based on grade level. In order to decrypt the encrypted message, the child <span class="typewriter">secret agent 
+                decoder</span> must solve mathematical expressions to unlock the corresponding letter. 
+                <span class="typewriter">Secret agent decoders</span> then can assemble the message one letter at a time to 
+                complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
           </div>
           <div class="col-lg-3 col-md-12 d-flex justify-content-center mt-2">
             <img class="logo" src="imgs/calculator.png">
@@ -44,11 +50,11 @@
           </div>
           <div class="col-xl-4 col-md-6 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2">
             <div>
-              <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 30 characters, required):</label><br>
-              <input type="text" id="message" name="message" required maxlength="30" size="10">
+              <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 42 characters, required):</label><br>
+              <input type="text" id="message" name="message" required maxlength="42" size="10">
               <p id="inputRequired"></p>
               <label class="mt-2" for="prompt">Optional message to display at the top:</label><br>
-              <input type="text" id="prompt" name="prompt" required maxlength="60" size="10" placeholder="This can a question, joke, or riddle, etc.">
+              <input type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
             </div>
           </div>
           <div class="col-xl-4 col-md-3 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2 typewriter">
@@ -58,22 +64,29 @@
         <div class="row">
           <div class="col-xl-2 col-md-2 col-sm-12"></div>
           <div class="col-xl-8 col-md-8 col-sm-12 d-flex align-items-center d-flex justify-content-around my-1 mx-2">
-            <p id="disclaimer">This webpage was made with <i id="disclaimer" class="far fa-heart"></i> as a creative and engaging solution to promote mathematics in early childhood education. Initially created as a personal project for my own daughter, this web app is free to use and is <a class = "text-white-50" href="https://github.com/McDanielES/math-decoder">open source</a>. Feel free to email Eric at <a class="text-white-50" href="mailto:eric@ericmcd.com">eric@ericmcd.com</a> with any questions, comments, or suggestions. Copyright <i id="disclaimer" class="far fa-copyright"></i> April 2020, Madison, Wisconsin</p>
+            <p id="disclaimer">This webpage was made with <i id="disclaimer" class="far fa-heart"></i> as a creative and engaging solution 
+              to promote mathematics in early childhood education. Initially created as a personal project for my own daughter, this web 
+              app is free to use and is <a class = "text-white-50" href="https://github.com/McDanielES/math-decoder">open source</a>. Feel 
+              free to email Eric at <a class="text-white-50" href="mailto:eric@ericmcd.com">eric@ericmcd.com</a> with any questions, comments, 
+              or suggestions. Copyright <i id="disclaimer" class="far fa-copyright"></i> April 2020, Madison, Wisconsin</p>
           </div>
           <div class="col-xl-2 col-md-2 col-sm-12"></div>
         </div>    
       </section>
       <section id="output">
         <h1 class="typewriter mt-2">Math Decoder <i class="fas fa-user-secret"></i></h1>
-        <h3 class="mx-3 my-2"><strong class="typewriter">Directions:</strong> To find the answer, solve the problem and write the letter or punctuation mark above the provided answer below.</h3>
+        <h3 class="mx-3 my-2"><strong class="typewriter">Directions:</strong> To find the answer, solve the problem and write the letter or 
+          punctuation mark above the provided answer below.</h3>
         <h2 id="promptAtTop" class="my-4"></h2>
         <div class="row"></div>
       </section>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+  crossorigin="anonymous"></script>
   <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
