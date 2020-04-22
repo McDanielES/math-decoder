@@ -224,6 +224,10 @@ span.noOverline {
     font-weight: 700;
   }
 
+  div {
+    page-break-inside: avoid;
+  }
+
   #promptAtTop {
     font-size: 2.2rem;
     border: 1px solid black;
