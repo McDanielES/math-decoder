@@ -74,12 +74,6 @@ p {
   margin-bottom: 7px;
 }
 
-#disclaimer {
-  font-size: 0.80em;
-  margin-bottom: 4px;
-  margin-top: 4px;
-}
-
 #answerLabel {
   font-size: 2rem;
   font-weight: 700;
@@ -169,6 +163,21 @@ span.noOverline {
 
 .fa-user-secret {
   font-size: 3rem;
+}
+
+.form-group {
+  margin: 0;
+}
+
+.form-control:focus {
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+.disclaimer {
+  font-size: 0.80em;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 @media (max-width: 992px) and (min-width: 768px)  {
