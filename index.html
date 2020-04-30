@@ -33,42 +33,51 @@
             <img class="logo" src="imgs/calculator.png">
           </div>
         </div>        
-
-        <div class="row">
-          <div class="col-xl-4 col-md-3 col-sm-12 d-flex align-items-center d-flex justify-content-around my-3">
-            <div>
-              <label><span class="typewriter"><strong>Difficulty:</strong></span></label><br>
-              <input type="radio" id="level-1" name="level" value="1" checked>
-              <label for="level-1">Level 1</label><br>
-              <input type="radio" id="level-2" name="level" value="2">
-              <label for="level-2">Level 2</label><br>
-              <input type="radio" id="level-3" name="level" value="3">
-              <label for="level-3">Level 3</label><br>
-              <input type="radio" id="level-4" name="level" value="4">
-              <label for="level-4">Level 4</label>
+        <form>
+          <div class="row">
+            <div class="col-xl-3 col-md-3 col-sm-12 d-flex align-items-center justify-content-around my-3">
+              <div>
+                <label><span class="typewriter"><strong>Difficulty:</strong></span></label><br>
+                <input type="radio" id="level-1" name="level" value="1" checked>
+                <label for="level-1">Level 1</label><br>
+                <input type="radio" id="level-2" name="level" value="2">
+                <label for="level-2">Level 2</label><br>
+                <input type="radio" id="level-3" name="level" value="3">
+                <label for="level-3">Level 3</label><br>
+                <input type="radio" id="level-4" name="level" value="4">
+                <label for="level-4">Level 4</label>
+              </div>
+            </div>
+            <div class="col-xl-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-around my-2">
+              <div style="width: 100%;">
+                <div class="form-group">
+                <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 42 characters, required):</label><br>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input class="form-control" type="text" id="message" name="message" required maxlength="42" size="10">
+                </div>
+                </div>
+                <p id="inputRequired"></p>
+                <label class="mt-2" for="prompt">Optional message to display at the top:</label><br>
+                <input class="form-control" type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-3 col-sm-12 d-flex align-items-center my-2 pl-lg-5 pl-md-2 justify-content-around justify-content-md-start typewriter">
+              <button type="button" id="encryptAction" class="btn btn-lg btn-outline-secondary pb-0 pr-4"><strong>Encrypt!</strong></button>
             </div>
           </div>
-          <div class="col-xl-4 col-md-6 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2">
-            <div>
-              <label for="message"><span class="typewriter"><strong>Secret Message</strong></span> (Max 42 characters, required):</label><br>
-              <input type="text" id="message" name="message" required maxlength="42" size="10">
-              <p id="inputRequired"></p>
-              <label class="mt-2" for="prompt">Optional message to display at the top:</label><br>
-              <input type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
-            </div>
-          </div>
-          <div class="col-xl-4 col-md-3 col-sm-12 d-flex align-items-center d-flex justify-content-around my-2 typewriter">
-            <button type="button" id="encryptAction" class="btn btn-lg btn-outline-secondary pb-0 px-4"><strong>Encrypt!</strong></button>
-          </div>
-        </div>
+        </form>
         <div class="row">
           <div class="col-xl-2 col-md-2 col-sm-12"></div>
           <div class="col-xl-8 col-md-8 col-sm-12 d-flex align-items-center d-flex justify-content-around my-1 mx-2">
-            <p id="disclaimer">This webpage was made with <i id="disclaimer" class="far fa-heart"></i> as a creative and engaging solution 
+            <small class="disclaimer">This webpage was made with <i id="disclaimer" class="far fa-heart"></i> as a creative and engaging solution 
               to promote mathematics in early childhood education. Initially created as a personal project for my own daughter, this web 
               app is free to use and is <a class = "text-white-50" href="https://github.com/McDanielES/math-decoder">open source</a>. Feel 
               free to email Eric at <a class="text-white-50" href="mailto:eric@ericmcd.com">eric@ericmcd.com</a> with any questions, comments, 
-              or suggestions. Copyright <i id="disclaimer" class="far fa-copyright"></i> April 2020, Madison, Wisconsin</p>
+              or suggestions.<br>Copyright <i class="far fa-copyright"></i> April 2020, <a class="text-white-50" href="https://www.ericmcd.com">
+                http://www.ericmcd.com</a>, Madison, Wisconsin</small>
           </div>
           <div class="col-xl-2 col-md-2 col-sm-12"></div>
         </div>    
