@@ -1,8 +1,8 @@
 # Math Decoder
 ## A Cryptographic Mathematical Game for Children
 
-![Sample image of Math Decoder's Main Menu](https://i.imgur.com/7tYi8s4l.png)
-![Sample run Math Decoder after taking in input](https://i.imgur.com/pnU5erKl.png)
+![Sample image of Math Decoder's Main Menu](https://www.ericmcd.com/mathdecoder/imgs/math-decoder-input.png)
+![Sample run Math Decoder after taking in input](https://www.ericmcd.com/mathdecoder/imgs/math-decoder-output.png)
 
 ---
 
