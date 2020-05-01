@@ -5,6 +5,7 @@ body {
 
 h1 {
   font-size: 5rem;
+  color: #233344;
   margin: -10px;
   letter-spacing: -0.2rem;
   font-variant: small-caps;
@@ -29,7 +30,7 @@ label strong, p strong {
   line-height: 1;
 }
 
-a {
+small a {
   text-decoration: underline;
 }
 
@@ -102,7 +103,7 @@ p {
   border-radius: 20px;
   border: 2px solid rgb(0, 0, 89);
   padding: 10px 2px;
-  margin: 25px 2px 25px 2px;
+  margin: 7% 2px 25px 2px;
   text-align: center;
 }
 
@@ -260,6 +261,7 @@ span.noOverline {
   .inner-container {
     background: #fff;
     border: none;
+    margin-top: 3;
   }
 
   .letter {

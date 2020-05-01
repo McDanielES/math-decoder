@@ -6,6 +6,7 @@
   <title>Math Decoder - ericmcd.com</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="icon" type="image/png" href="imgs/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="imgs/favicon-16x16.png" sizes="16x16" />
@@ -15,6 +16,45 @@
   <link href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark mt-0">
+    <div class="container">
+      <a class="navbar-brand mr-4"><img src="../imgs/logos/bashlogo-mini.png" class="img-fluid mr-1"> <span class="text-white-50">/home/</span>ericmcd.com</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link mr-1" href="../">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mr-1" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link mr-1 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Web Apps
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="https://www.ericmcd.com/mathdecoder/">Math Decoder</a>
+              <a class="dropdown-item" href="https://chore.ericmcd.com/">Chore Chart</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">View All</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mr-1 disabled" href="#" tabindex="-1" aria-disabled="true">Résumé</a>
+          </li>
+        </ul>
+        <a class="nav-link d-inline mr-1 p-0" href="https://github.com/McDanielES/"><img src="../imgs/network-icons/github.png" class="img-fluid mt-4 mt-lg-0"></a>
+        <a class="nav-link d-inline mr-1 p-0" href="https://www.linkedin.com/in/eric-mcdaniel-71a1a2153/"><img src="../imgs/network-icons/linkedin.png" class="img-fluid mt-4 mt-lg-0"></a>
+        <a class="nav-link d-inline mr-1 p-0" href="https://twitter.com/devnullsrevenge"><img src="../imgs/network-icons/twitter.png" class="img-fluid mt-4 mt-lg-0"></a>
+        <a class="nav-link d-inline mr-1 p-0" href="https://www.facebook.com/eric.s.mcdaniel/"><img src="../imgs/network-icons/facebook.png" class="img-fluid mt-4 mt-lg-0"></a>
+      </div>
+    </div>
+  </nav>
+
+
   <div class="container">
     <div class="inner-container">
       <section id="entry">
@@ -70,16 +110,13 @@
           </div>
         </form>
         <div class="row">
-          <div class="col-xl-2 col-md-2 col-sm-12"></div>
-          <div class="col-xl-8 col-md-8 col-sm-12 d-flex align-items-center d-flex justify-content-around my-1 mx-2">
+          <div class="col-md-8 col-sm-12 offset-md-2 d-flex align-items-center my-1">
             <small class="disclaimer">This webpage was made with <i id="disclaimer" class="far fa-heart"></i> as a creative and engaging solution 
               to promote mathematics in early childhood education. Initially created as a personal project for my own daughter, this web 
               app is free to use and is <a class = "text-white-50" href="https://github.com/McDanielES/math-decoder">open source</a>. Feel 
               free to email Eric at <a class="text-white-50" href="mailto:eric@ericmcd.com">eric@ericmcd.com</a> with any questions, comments, 
-              or suggestions.<br>Copyright <i class="far fa-copyright"></i> April 2020, <a class="text-white-50" href="https://www.ericmcd.com">
-                http://www.ericmcd.com</a>, Madison, Wisconsin</small>
+              or suggestions.<br>Copyright <i class="far fa-copyright"></i> April 2020 - Madison, Wisconsin</small>
           </div>
-          <div class="col-xl-2 col-md-2 col-sm-12"></div>
         </div>    
       </section>
       <section id="output">
