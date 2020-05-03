@@ -36,7 +36,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item">Math Decoder</a>
-              <a class="dropdown-item" href="../../chore.ericmcd.com">Chore Chart</a>
+              <a class="dropdown-item" href="../../chore.ericmcd.com/">Chore Chart</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item disabled">View All</a>
             </div>
@@ -57,7 +57,7 @@
       <section id="entry">
         <h1 class="typewriter mt-2">Math Decoder</h1>
         <h2><em>a cryptographic mathematical game for children</em></h2>
-        <div id="instruct" class="row mx-5">
+        <div id="instruct" class="row mx-md-5 mx-1">
           <div class="col-lg-9 col-sm-12 d-flex align-items-center mt-3">
             <p class="text-justify"><span class="typewriter"><strong>Instructions: </strong></span>This application allows parents to generate 
               printable worksheets with a custom secret message which is then encrypted into elementary mathematical expressions 
@@ -67,7 +67,7 @@
                 complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
           </div>
           <div class="col-lg-3 col-md-12 d-flex justify-content-center mt-2">
-            <img class="logo" src="imgs/calculator.png">
+            <img class="logo d-none d-lg-block" src="imgs/calculator.png">
           </div>
         </div>        
         <form>
@@ -98,7 +98,12 @@
                 </div>
                 <p id="inputRequired"></p>
                 <label class="mt-2" for="prompt">Optional message to display at the top:</label><br>
-                <input class="form-control" type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text input-group-text-optional"><i class="far fa-comment-dots"></i></span>
+                  </div>
+                  <input class="form-control" type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
+                </div>
               </div>
             </div>
             <div class="col-xl-3 col-md-3 col-sm-12 d-flex align-items-center my-2 pl-lg-5 pl-md-2 justify-content-around justify-content-md-start typewriter">

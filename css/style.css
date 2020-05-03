@@ -56,7 +56,7 @@ p {
 
 #prompt {
   background: #44226622;
-  border: solid #111133 1px;
+  border-color: #444;
 }
 
 #prompt::placeholder {
@@ -101,7 +101,7 @@ p {
   color: #233344;
   box-shadow: 10px 10px 10px rgba(0, 0, 89, 0.3);
   border-radius: 20px;
-  border: 2px solid rgb(0, 0, 89);
+  border: 2px solid rgb(39, 39, 63);
   padding: 10px 2px;
   margin: 7% 2px 25px 2px;
   text-align: center;
@@ -179,6 +179,16 @@ span.noOverline {
   font-size: 0.80em;
   margin-bottom: 4px;
   margin-top: 4px;
+}
+
+.input-group-text {
+  background-color: #e3d7e4;
+}
+
+.input-group-text-optional {
+  background-color: #806e80;
+  border-color: #444;
+  color: #222;
 }
 
 @media (max-width: 992px) and (min-width: 768px)  {
