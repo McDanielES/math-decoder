@@ -5,7 +5,7 @@
  *               mathematical expressions and corresponding letters for kids to decrypt
  *               secret messages that had been encrypted. 
  * @author       Eric McDaniel, April 2020
- * @version      1.0.2
+ * @version      1.0.3
  */
 
 // Global variables and constants initialized at startup.
@@ -14,7 +14,8 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: I want more chores please!",
                       "Ex: Daddy snores in his sleep",
                       "Ex: The dog really ate my homework",
-                      "Ex: No more monkeys jumping!"];
+                      "Ex: No more monkeys jumping!",
+                      "Ex: Be sure to drink your Ovaltine"];
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
 const operations    = ["+", "-", "×", "÷"];
 const colors        = ["#bb4455", "#2d3eb1", "#3d723a", "#bf6919"];
