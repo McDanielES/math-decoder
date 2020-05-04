@@ -5,7 +5,7 @@
  *               mathematical expressions and corresponding letters for kids to decrypt
  *               secret messages that had been encrypted. 
  * @author       Eric McDaniel, April 2020
- * @version      1.0.3
+ * @version      1.0.4
  */
 
 // Global variables and constants initialized at startup.
@@ -17,6 +17,7 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: No more monkeys jumping!",
                       "Ex: Be sure to drink your Ovaltine"];
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
+$("#message").focus();
 const operations    = ["+", "-", "×", "÷"];
 const colors        = ["#bb4455", "#2d3eb1", "#3d723a", "#bf6919"];
 const solutionRange = [1.5, 10, 1, 3];
@@ -25,10 +26,33 @@ var   message       = "";
 var   difficulty;
 
 /**
- *                           #encryptAction - The Main Focus
- * Invoke the main action event of the application on the press of the "Encrypt" button.
+ *                      Encryption Action - Invoked by three possible ways 
+ * Invoke the main action event of the application on the press of the "Encrypt" button or press "Enter".
  */
-$("#encryptAction").on("click", function() {
+$("#encryptButton").on("click", main);
+$("#message").keypress(function (e) {
+  if (e.which === 13) {
+    $("#encryptButton").click();
+    return false;
+  }
+});
+$("#prompt").keypress(function (e) {
+  if (e.which === 13) {
+    $("#encryptButton").click();
+    return false;
+  }
+});
+
+/**
+ * This function is called when either the "Encrypt" button is clicked, or when the enter key
+ * is pressed down on when typing on either of the text input boxes. Despite the fact that three 
+ * sources can call it, this is essentially the main function of this application. First the user
+ * is alerted to enter input if they have not done so. Once they have, then the directions are
+ * removed from the screen, a new display is drafted, and additional helper functions are called
+ * to generate the appropriate mathematical problem sets. The sets are then placed on to the
+ * document.
+ */
+function main() {
   // Alert user that input field is empty
   if ($("input[name='message']").val() === "") {
     $("#inputRequired").css("display", "block");
@@ -44,7 +68,7 @@ $("#encryptAction").on("click", function() {
     $("#output").css("display", "block");
     $("#promptAtTop").text($("input[name='prompt']").val());
     if ($("input[name='prompt']").val().length === 0)
-    $("#promptAtTop").css("visibility", "collapse");
+      $("#promptAtTop").css("visibility", "collapse");
 
     // Update global scope variables with user-provided input
     difficulty = Number($("input[name='level']:checked").val());
@@ -53,8 +77,8 @@ $("#encryptAction").on("click", function() {
     var problems = generateProblemSet();
     printProblemSet(problems);
     printAnswerBubble(problems);
-  }  
-});
+  }
+}
 
 /**
  * Builds a new problem set by doing so piece by piece, where the values are kept
@@ -202,7 +226,7 @@ function populateOperations(problems) {
 
 /**
  * Prints out the formatted problem set, mapped with their corresponding shuffled counterparts,
- * into the document window. Spaces are kept blank by discarding the problem entirely. ¯\_(ツ)_/¯
+ * into the document window. Spaces are kept blank by discarding the problem entirely.
  * 
  * @param {Object} problems the complete set of problems including all terms, solutions, and
  *                          assigned letters.
@@ -263,7 +287,7 @@ function generateSolutionsMap() {
  * reinvent the wheel if it works well. This is a generic helper function to shuffle the letters
  * around and not make the message easy to solve.
  * 
- * @param arr arr the original array presorted
+ * @param arr the original array presorted
  * @return arr the modified array after it is shuffled
  */
 function shuffle(arr) {
@@ -282,8 +306,8 @@ function shuffle(arr) {
  * A helper function that uses regular expressions to format the argument, assumed to
  * be a number, to have a comma after every three digits, such as 1,000.
  * 
- * @param {String} num 
+ * @param {String} num the number that needs to be formatted. 
  */
 function formatNumber(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
