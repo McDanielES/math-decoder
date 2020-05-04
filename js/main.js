@@ -5,7 +5,7 @@
  *               mathematical expressions and corresponding letters for kids to decrypt
  *               secret messages that had been encrypted. 
  * @author       Eric McDaniel, April 2020
- * @version      1.0.4
+ * @version      2.1
  */
 
 // Global variables and constants initialized at startup.
@@ -30,13 +30,7 @@ var   difficulty;
  * Invoke the main action event of the application on the press of the "Encrypt" button or press "Enter".
  */
 $("#encryptButton").on("click", main);
-$("#message").keypress(function (e) {
-  if (e.which === 13) {
-    $("#encryptButton").click();
-    return false;
-  }
-});
-$("#prompt").keypress(function (e) {
+$("input[type='text']").keypress(function (e) {
   if (e.which === 13) {
     $("#encryptButton").click();
     return false;
@@ -67,6 +61,8 @@ function main() {
     // Show problem set
     $("#output").css("display", "block");
     $("#promptAtTop").text($("input[name='prompt']").val());
+
+    // Hide the optional message if none was provided
     if ($("input[name='prompt']").val().length === 0)
       $("#promptAtTop").css("visibility", "collapse");
 
@@ -74,6 +70,7 @@ function main() {
     difficulty = Number($("input[name='level']:checked").val());
     message = $("input[name='message']").val().toUpperCase();
 
+    // The bulk of this app: generate the problems, and print them to the document
     var problems = generateProblemSet();
     printProblemSet(problems);
     printAnswerBubble(problems);
