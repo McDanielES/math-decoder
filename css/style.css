@@ -170,6 +170,10 @@ span.noOverline {
   margin: 0;
 }
 
+.form-control, .input-group-text {
+  border: 1px solid #444;
+}
+
 .form-control:focus {
   border-color: #ced4da;
   box-shadow: none;
@@ -196,6 +200,7 @@ input[type=text], #encryptButton {
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
   outline: none;
 }
  
