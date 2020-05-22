@@ -5,7 +5,7 @@
  *               mathematical expressions and corresponding letters for kids to decrypt
  *               secret messages that had been encrypted. 
  * @author       Eric McDaniel, April 2020
- * @version      2.1
+ * @version      2.2
  */
 
 // Global variables and constants initialized at startup.
@@ -17,10 +17,9 @@ const demoExamples = ["Ex: The moon is made of cheese!",
                       "Ex: No more monkeys jumping!",
                       "Ex: Be sure to drink your Ovaltine"];
 $("#message").attr("placeholder", demoExamples[Math.floor(demoExamples.length * Math.random())]);
-$("#message").focus();
 const operations    = ["+", "-", "×", "÷"];
 const colors        = ["#bb4455", "#2d3eb1", "#3d723a", "#bf6919"];
-const solutionRange = [1.5, 10, 1, 3];
+const solutionRange = [1.5, 10, 1, 3.5];
 var   solutionsMap  = [];
 var   message       = "";
 var   difficulty;
@@ -36,6 +35,8 @@ $("input[type='text']").keypress(function (e) {
     return false;
   }
 });
+if ($(window).width() > 768)
+  $("#message").focus();
 
 /**
  * This function is called when either the "Encrypt" button is clicked, or when the enter key
@@ -67,7 +68,8 @@ function main() {
       $("#promptAtTop").css("visibility", "collapse");
 
     // Update global scope variables with user-provided input
-    difficulty = Number($("input[name='level']:checked").val());
+    // difficulty = Number($("input[name='level']:checked").val());
+    difficulty = Number($("#difficultySelection").val());
     message = $("input[name='message']").val().toUpperCase();
 
     // The bulk of this app: generate the problems, and print them to the document
@@ -98,12 +100,22 @@ function generateProblemSet() {
   
   generateSolutionsMap();
   populateOperations(problems);
-  if (difficulty < 3) {
-    populateAddSubtractSolutions(problems);
-    populateAddSubtractTerms(problems);
-  }
-  else {
-    populateMultiDivideProblems(problems);
+
+  switch (difficulty) {
+    case 1:
+      populateAddSubtractSolutions(problems);
+      setOperatorForLevelOne(problems);
+      populateAddSubtractTerms(problems);
+      break;
+    case 2:
+    case 3:
+      populateAddSubtractSolutions(problems);
+      populateAddSubtractTerms(problems);
+      break;
+    case 4:
+    case 5:
+      populateMultiDivideProblems(problems);
+      break;
   }
   return problems;
 }
@@ -118,10 +130,11 @@ function generateProblemSet() {
 function populateAddSubtractSolutions(problems) {
   for (var i = 0; i < message.length; i++) {
     do {
-      var newSol = Math.floor(message.length * solutionRange[difficulty - 1] * Math.random());
+      var newSol = Math.floor(message.length * solutionRange[difficulty] * Math.random());
     } while (problems.solution.includes(newSol))
-    // A unique, non-repeated solution is found, push to the array and continue.
-    problems.solution.push(newSol);
+    // A unique, non-repeated solution is found, push to the array and continue. Repeat if
+    // solution is under 20, as per level one maximum.
+    ((difficulty === 1) && (newSol > 20)) ? --i : problems.solution.push(newSol);
   }
 }
 
@@ -175,8 +188,8 @@ function populateMultiDivideProblems(problems) {
 
   for (var i = 0; i < message.length; i++) {
     if (problems.operation[i] === "×") {
-      first = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 1]));
-      second = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 1]) + 1);
+      first = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 2]));
+      second = (Math.floor(Math.random() * 15 * solutionRange[difficulty - 2]) + 1);
       // Increment the first value until the solution is unique in the solution set array
       while (problems.solution.includes(first * second)) {
         first++;
@@ -186,8 +199,8 @@ function populateMultiDivideProblems(problems) {
     else {
       // Division
       do {
-        first = (Math.floor(Math.random() * 120 * solutionRange[difficulty - 1]));
-        second = (Math.floor(Math.random() * 9 * solutionRange[difficulty - 1]) + 1);
+        first = (Math.floor(Math.random() * 90 * solutionRange[difficulty - 2]));
+        second = (Math.floor(Math.random() * 9 * solutionRange[difficulty - 2]) + 1);
         while (first % second !== 0) {
           first++;
         } // Repeat this entire process if the value was found in the solution set.
@@ -215,9 +228,15 @@ function populateMultiDivideProblems(problems) {
  */
 function populateOperations(problems) {  
   for (var i = 0; i < message.length; i++) {
-    problems.operation.push( (difficulty > 2) ? 
+    problems.operation.push( (difficulty > 3) ? 
                               operations[Math.floor((Math.random() * 0.85) * (operations.length - 2)) + 2] :
                               operations[Math.floor(Math.random() * (operations.length - 2))]);
+  }
+}
+
+function setOperatorForLevelOne(problems) {
+  for (var i = 0; i < message.length; i++) {
+    (problems.solution[i] > 10) ? problems.operation[i] = "+" : problems.operation[i] = "-";
   }
 }
 
