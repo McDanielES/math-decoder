@@ -35,8 +35,20 @@ $("input[type='text']").keypress(e => {
     return false;
   }
 });
+
 if ($(window).width() > 768)
   $("#message").focus();
+
+$('#difficultySelection').on('change', function() { 
+  if (Number($(this).val()) === 1) {
+    $("#characters").html("<strong>20</strong>");
+    $("#message").attr('maxlength','20');
+    $("#message").val($("#message").val().substring(0, 20));
+  } else {
+    $("#characters").html("42");
+    $("#message").attr('maxlength','42');
+  }
+});
 
 /**
  * This function is called when either the "Encrypt" button is clicked, or when the enter key
