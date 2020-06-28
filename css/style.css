@@ -110,6 +110,11 @@ p {
   line-height: 1;
 }
 
+.help {
+  font-size: 0.82em;
+  line-height: 3em;
+}
+
 .btn-outline-secondary:hover {
   background: rgba(0, 0, 89, 0.3);
   border-color: #111133;
@@ -242,12 +247,21 @@ input[type=text]:focus, #encryptButton:focus {
     margin-right: 3px;
     word-spacing: 1.5rem;
   }
+  .help {
+    font-size: 0.75em;
+    line-height: 1em;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 777px) {
   .col-sm-12 {
     flex: 1 80%;
   }
+}
+
+@page {
+  margin-top: -0.15cm;
+  margin-bottom: -0.15cm;
 }
 
 @media print {
@@ -266,22 +280,30 @@ input[type=text]:focus, #encryptButton:focus {
 
   #promptAtTop {
     font-size: 2.2rem;
-    border: 1px solid black;
-    border-radius: 16px;
-    padding: 4px;
+    padding: 6px;
     display: hidden;
+    background: #ede9ff;
   }
 
   #answerLabel {
-    margin-top: 2em !important;
-    border: 1pt solid black;
+    margin-top: 1em !important;
     border-radius: 16px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
     background: none;
+    page-break-inside: avoid;
   }
 
   #answerLabel p {
-    font-size: 2.7rem;
+    font-size: 3rem;
+    font-weight: 400;
     text-shadow: none;
+    background: #ffdce4;
   }
 
   .inner-container {
