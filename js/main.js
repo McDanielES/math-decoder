@@ -281,10 +281,9 @@ function printProblemSet(problems) {
  */
 function printAnswerBubble(problems) {
   $("#output").append("<div class='row'></div>");
-  $(".row").last().append("<div class='col-xl-1 col-md-1 col-sm-12 mt-3'></div>");
-  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 col-sm-12 mt-3'><p>Answer Key</p><div class='row'></div></div>");
+  $(".row").last().append("<div id='answerLabel' class='col-xl-10 col-md-10 offset-md-1 col-sm-12 mt-3'><p>Answer Key</p><div class='row'></div></div>");
   $(".row").last().css("padding-top", "15px");
-  $(".row").last().append("<div class='col-xl-12 col-sm-12 mt-3 mx-0 px-0'></div>");
+  $(".row").last().append("<div class='col-xl-12 col-sm-12 mt-3 mx-0 px-1'></div>");
   let i = 0;
   while (i < message.length) {
       if (problems.letter[i] == " ") {
