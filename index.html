@@ -52,26 +52,66 @@
       </div>
     </div>
   </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="math-decoder-modal-centered" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalCenterTitle">What did the doctor say to the monkey's parents?</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="large">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12 mt-2">
+              <a href="imgs/LillyDemo.jpg"><img class="img-container" src="imgs/LillyDemo.jpg" alt="Lilly with completed worksheet"></a>
+              <p class="mt-2 text-center">No more jumping on the bed!</p>
+            </div>
+            <div class="col-lg-6 col-sm-12 mt-2">
+              <a href="imgs/cheese.jpg"><img class="img-container" src="imgs/cheese.jpg" alt="Example worksheet at Level 3"></a>
+              <p class="mt-2 text-center">Another sample worksheet set to Level 3</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary px-5 mr-lg-5" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="inner-container">
       <section id="entry">
         <h1 class="typewriter mt-2">Math Decoder</h1>
         <h2><em>a cryptographic mathematical game for children</em></h2>
-        <div id="instruct" class="row mx-md-5 mx-1">
+        <div class="row instruct mx-md-5 mx-1 mb-3">
           <div class="col-lg-9 col-sm-12 d-flex align-items-center mt-3">
-            <p class="text-justify"><span class="typewriter"><strong>Instructions: </strong></span>This application allows adults to generate 
-            printable worksheets for children with a custom secret message which is then encrypted into elementary mathematical expressions 
-            based on grade level. In order to decrypt the encrypted message, the child <span class="typewriter">secret agent 
-            decoder</span> must solve mathematical expressions to unlock the corresponding letter. Once letters are associated with solutions,
-            <span class="typewriter">Secret agent decoders</span> then can reassemble the message one letter at a time to 
-            complete the decryption process. Solve all of the math problems and be a cryptographic hero!
-            <br><span class="help">Instructions on how to create and format your worksheet can be <a href="help"
-            class="text-white-50 text-underline">found on the help page</a>.</span></p>
+
+            <div class="row instruct d-flex align-items-center">
+              <div class="col-lg-12 mb-3">
+                <p class="text-justify"><span class="typewriter"><strong>Instructions: </strong></span>This application allows adults to generate 
+                  printable worksheets for children with a custom secret message which is then encrypted into elementary mathematical expressions 
+                  based on grade level. In order to decrypt the encrypted message, the child <span class="typewriter">secret agent 
+                  decoder</span> must solve mathematical expressions to unlock the corresponding letter. Once letters are associated with solutions,
+                  <span class="typewriter">Secret agent decoders</span> then can reassemble the message one letter at a time to 
+                  complete the decryption process. Solve all of the math problems and be a cryptographic hero!</p>
+              </div>
+              <div class="col-lg-7">
+                <a href="help" class="btn btn-sm btn-outline-secondary border-0 btn-block">Click here for additional help and formatting instructions</a>
+              </div>
+              <div class="col-lg-5">
+                <button id="myBtn" type="button" class="btn btn-sm btn-outline-secondary border-0 btn-block" data-toggle="modal" data-target="#math-decoder-modal-centered">Click here to view example worksheets</button>
+              </div>
+            </div>
           </div>
           <div class="col-lg-3 col-md-12 d-flex justify-content-center mt-2">
             <img class="logo d-none d-lg-block" src="imgs/calculator.png">
           </div>
-        </div>        
+        </div>
+
         <form>
           <div class="row">
             <div class="col-xl-6 col-md-6 col-sm-12 offset-md-1 d-flex align-items-center justify-content-around my-2">
@@ -91,7 +131,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text input-group-text-optional"><i class="far fa-comment-dots"></i></span>
                   </div>
-                  <input class="form-control" type="text" id="prompt" name="prompt" required maxlength="120" size="10" placeholder="This can a question, joke, or riddle, etc.">
+                  <textarea class="form-control" rows="1" id="prompt" name="prompt" required maxlength="220" placeholder="This can a question, joke, or riddle, etc."></textarea>
                 </div>
               </div>
             </div>

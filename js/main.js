@@ -73,10 +73,10 @@ function main() {
 
     // Show problem set
     $("#output").css("display", "block");
-    $("#promptAtTop").text($("input[name='prompt']").val());
+    $("#promptAtTop").text($("textarea[name='prompt']").val());
 
     // Hide the optional message if none was provided
-    if ($("input[name='prompt']").val().length === 0)
+    if ($("textarea[name='prompt']").val().length === 0)
       $("#promptAtTop").css("visibility", "collapse");
 
     // Update global scope variables with user-provided input
